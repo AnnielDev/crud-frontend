@@ -4,7 +4,7 @@ import { useAuthProvider } from "@/context/AuthContext";
 import { useLocation } from "react-router-dom";
 import icon from "@/assets/icon.png";
 export default function SideBar() {
-  const { session } = useAuthProvider();
+  const { session, removeSession } = useAuthProvider();
   const navigate = useLocation();
   const routes = [
     { label: "Home", icon: <TiHomeOutline size={20} />, route: "/" },
@@ -44,7 +44,10 @@ export default function SideBar() {
       </div>
       {/* Signout */}
       <div className="flex justify-center" style={{ flexGrow: 0.5 }}>
-        <span className="flex items-center gap-2 cursor-pointer">
+        <span
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={removeSession}
+        >
           Logout
           <MdOutlineLogout />
         </span>

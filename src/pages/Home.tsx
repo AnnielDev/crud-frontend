@@ -12,5 +12,5 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, []);
-  return <div className="pt-2"></div>;
+  return <div></div>;
 }
