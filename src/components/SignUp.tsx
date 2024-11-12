@@ -75,7 +75,7 @@ export default function SignIn({ onBack }: Props) {
   return (
     <>
       <FaArrowLeftLong className="cursor-pointer" onClick={onBack} />
-      <h1 className="uppercase text-center font-bold text-3xl max-lg:text-2xl">
+      <h1 className="uppercase text-center font-bold text-3xl max-lg:text-2xl drop-shadow-lg">
         crud operations
       </h1>
       <div className="flex flex-col items-center my-8">

@@ -24,7 +24,7 @@ export default function Auth() {
     >
       <div
         style={{ padding: `${auth ? "20px" : "24px"}` }}
-        className="bg-white w-5/12 max-lg:w-10/12 rounded-2xl drop-shadow-sm shadow-lg"
+        className="bg-white w-4/12 max-lg:w-10/12 rounded-2xl drop-shadow-sm shadow-lg"
       >
         {!auth ? (
           <SignIn />

@@ -12,5 +12,11 @@ export default function Home() {
   useEffect(() => {
     getData();
   }, []);
-  return <div></div>;
+  return (
+    <div className="pt-2 grow pr-8">
+      <div className="border-b-2">
+        <h1 className="font-bold text-[22px]">User List</h1>
+      </div>
+    </div>
+  );
 }
