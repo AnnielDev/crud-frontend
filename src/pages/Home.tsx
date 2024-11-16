@@ -24,10 +24,11 @@ export default function Home() {
   async function onDelete() {
     try {
       if (userToDelete) {
-        await deleteUser(userToDelete);
+        const { data } = await deleteUser(userToDelete);
         setIsDeleteModalOpen(false);
         setUserToDelete(null);
         getData();
+        showAlert("SUCCESS", data.message);
       }
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
@@ -40,11 +41,30 @@ export default function Home() {
 
   async function onEdit() {
     try {
-      if (userToEdit) {
-        await updateUser(userToEdit._id ?? "", userToEdit);
-        setIsEditModalOpen(false);
-        setUserToEdit(null);
-        getData();
+      if (
+        userToEdit?.email &&
+        userToEdit?.age &&
+        userToEdit?.gender &&
+        userToEdit?.lastname &&
+        userToEdit?.name &&
+        userToEdit?.username
+      ) {
+        if (
+          userToEdit.email.includes("@gmail.com") ||
+          userToEdit.email.includes("@hotmail.com")
+        ) {
+          if (userToEdit) {
+            const { data } = await updateUser(userToEdit._id ?? "", userToEdit);
+            setIsEditModalOpen(false);
+            setUserToEdit(null);
+            getData();
+            showAlert("SUCCESS", data.message);
+          }
+        } else {
+          showAlert("WARNING", "This is not a valid email!");
+        }
+      } else {
+        showAlert("WARNING", "You must fill in all fields!");
       }
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
@@ -99,10 +119,18 @@ export default function Home() {
             {data.map((user) => (
               <tr key={user._id} className="bg-white mb-2">
                 <td className="p-4 border-b-8 border-[#f8f8f8]">{user.name}</td>
-                <td className="p-4 border-b-8 border-[#f8f8f8]">{user.username}</td>
-                <td className="p-4 border-b-8 border-[#f8f8f8]">{user.lastname}</td>
-                <td className="p-4 border-b-8 border-[#f8f8f8]">{user.email}</td>
-                <td className="p-4 border-b-8 border-[#f8f8f8]">{user.gender}</td>
+                <td className="p-4 border-b-8 border-[#f8f8f8]">
+                  {user.username}
+                </td>
+                <td className="p-4 border-b-8 border-[#f8f8f8]">
+                  {user.lastname}
+                </td>
+                <td className="p-4 border-b-8 border-[#f8f8f8]">
+                  {user.email}
+                </td>
+                <td className="p-4 border-b-8 border-[#f8f8f8]">
+                  {user.gender}
+                </td>
                 <td className="p-4 border-b-8 border-[#f8f8f8]">{user.age}</td>
                 <td className="p-4 border-b-8 border-[#f8f8f8]">
                   <div className="flex items-center gap-2">
