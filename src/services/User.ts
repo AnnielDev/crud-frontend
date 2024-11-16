@@ -29,5 +29,7 @@ export async function deleteUser(userId: string) {
 
 // UPDATE
 export async function updateUser(userId: string, body: IUser) {
-  return http.put(`users/updateUser/${userId}`, body).then((data) => data);
+  return http
+    .put(`users/updateUser/${userId}`, { data: body })
+    .then((data) => data);
 }

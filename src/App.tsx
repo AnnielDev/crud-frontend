@@ -20,7 +20,7 @@ function App() {
             <Route
               path="/"
               element={
-                <div className="flex flex-row gap-8 h-[100vh]">
+                <div className="flex flex-row gap-8 h-[100vh] bg-[#f8f8f8]">
                   <SideBar />
                   <Home />
                 </div>
