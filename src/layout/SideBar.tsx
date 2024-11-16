@@ -1,4 +1,4 @@
-import { TiHomeOutline } from "react-icons/ti";
+import { FaUserAlt } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
 import { useAuthProvider } from "@/context/AuthContext";
 import { useLocation } from "react-router-dom";
@@ -7,7 +7,7 @@ export default function SideBar() {
   const { session, removeSession } = useAuthProvider();
   const navigate = useLocation();
   const routes = [
-    { label: "Home", icon: <TiHomeOutline size={20} />, route: "/" },
+    { label: "Users", icon: <FaUserAlt size={20} />, route: "/users" },
   ];
   return (
     <div className="flex flex-col px-4 py-2 bg-[#f2eae1]">

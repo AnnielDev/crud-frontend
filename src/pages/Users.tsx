@@ -8,7 +8,7 @@ import useAlert from "@/hook/useAlert";
 
 Modal.setAppElement("#root");
 
-export default function Home() {
+export default function Users() {
   const [data, setData] = useState<IUser[]>([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);

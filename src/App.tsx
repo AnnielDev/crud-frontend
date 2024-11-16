@@ -5,7 +5,7 @@ import { useAuthProvider } from "@/context/AuthContext";
 import SideBar from "@/layout/SideBar";
 
 // PAGES
-import Home from "@/pages/Home";
+import Users from "@/pages/Users";
 import Auth from "@/pages/Auth";
 function App() {
   const { session } = useAuthProvider();
@@ -18,11 +18,11 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute user={!!session} />}>
             <Route
-              path="/"
+              path="/users"
               element={
                 <div className="flex flex-row gap-8 h-[100vh] bg-[#f8f8f8]">
                   <SideBar />
-                  <Home />
+                  <Users />
                 </div>
               }
             />
