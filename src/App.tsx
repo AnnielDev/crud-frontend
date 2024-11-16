@@ -18,7 +18,7 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute user={!!session} />}>
             <Route
-              path="/users"
+              path="/"
               element={
                 <div className="flex flex-row gap-8 h-[100vh] bg-[#f8f8f8]">
                   <SideBar />

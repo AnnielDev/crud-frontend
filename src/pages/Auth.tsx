@@ -10,7 +10,7 @@ export default function Auth() {
 
   useEffect(() => {
     if (session) {
-      navigate("/users", { replace: true });
+      navigate("/", { replace: true });
     }
   }, [session, navigate]);
 
