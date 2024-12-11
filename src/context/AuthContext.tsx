@@ -13,7 +13,7 @@ interface SessionState {
 
 const defaultState: SessionState = {
   session: null,
-  setSessionState: (session: IUser | null) => {},
+  setSessionState: () => {},
   removeSession: () => {},
 };
 
