@@ -101,7 +101,6 @@ export default function Users() {
 
   return (
     <div className="flex flex-col pt-2 grow pr-8">
-      <h1 className="font-bold text-[22px]">User List</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full border-collapse table-auto">
           <thead>
