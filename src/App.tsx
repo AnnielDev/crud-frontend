@@ -14,11 +14,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route index path="/login" element={<Auth />} />
+          <Route index path="/" element={<Auth />} />
           {/* Protected Routes */}
           <Route element={<ProtectedRoute user={!!session} />}>
             <Route
-              path="/"
+              path="/users"
               element={
                 <div className="flex flex-row gap-8 h-[100vh] bg-[#f8f8f8]">
                   <SideBar />

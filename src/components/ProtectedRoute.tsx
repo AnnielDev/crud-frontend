@@ -5,7 +5,7 @@ export const ProtectedRoute: FC<{
   children?: ReactNode;
   user: boolean;
   redirectTo?: string;
-}> = ({ children, user, redirectTo = "/login" }) => {
+}> = ({ children, user, redirectTo = "/" }) => {
   if (!user) {
     return <Navigate to={redirectTo} />;
   }
