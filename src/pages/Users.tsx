@@ -5,10 +5,12 @@ import { IUser } from "@/types/IUser";
 import { MdDelete, MdEdit } from "react-icons/md";
 import Modal from "react-modal";
 import useAlert from "@/hook/useAlert";
+import { useAuthProvider } from "@/context/AuthContext";
 
 Modal.setAppElement("#root");
 
 export default function Users() {
+  const { session, removeSession } = useAuthProvider();
   const [data, setData] = useState<IUser[]>([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -27,8 +29,12 @@ export default function Users() {
         const { data } = await deleteUser(userToDelete);
         setIsDeleteModalOpen(false);
         setUserToDelete(null);
-        getData();
-        showAlert("SUCCESS", data.message);
+        if (userToDelete === session?._id) {
+          removeSession();
+        } else {
+          getData();
+          showAlert("SUCCESS", data.message);
+        }
       }
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
